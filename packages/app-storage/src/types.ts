@@ -6,7 +6,9 @@ import { StorageEntryBase } from '@polkadot/api/types';
 import { ConstValue } from '@polkadot/react-components/InputConsts/types';
 import { RawParams } from '@polkadot/react-params/types';
 
-export type StorageEntryPromise = StorageEntryBase<'promise', any>;
+import type { AnyTuple } from '@polkadot/types/types';
+
+export type StorageEntryPromise = StorageEntryBase<'promise', any, AnyTuple>;
 
 interface Base {
   isConst: boolean;

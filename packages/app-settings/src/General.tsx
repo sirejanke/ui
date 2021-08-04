@@ -3,11 +3,11 @@
 // of the Apache-2.0 license. See the LICENSE file for details.
 
 import { Option } from './types';
-
+import type { SettingsStruct } from '@polkadot/ui-settings/types';
 import React, { useEffect, useState, useMemo } from 'react';
 import { isLedgerCapable } from '@polkadot/react-api';
 import { Button, ButtonCancel, Dropdown } from '@polkadot/react-components';
-import uiSettings, { SettingsStruct } from '@polkadot/ui-settings';
+import uiSettings from '@polkadot/ui-settings';
 
 import { availableLanguages } from './available';
 import { useTranslation } from './translate';

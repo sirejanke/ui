@@ -8,8 +8,8 @@ import { CallState } from '../types';
 import { HOC, Options, DefaultProps, RenderFn } from './types';
 
 import React from 'react';
-import { Observable, of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { Observable, of } from '@polkadot/x-rxjs';
+import { catchError, map } from '@polkadot/x-rxjs/operators';
 
 import echoTransform from '../transform/echo';
 import { intervalObservable, isEqual, triggerChange } from '../util';

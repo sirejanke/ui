@@ -26,8 +26,7 @@ import { Button, InputBalance, Modal, Toggle, Output, ErrorBoundary, InputNumber
 import { registry } from '@polkadot/react-api';
 import { withApi, withMulti, withObservable } from '@polkadot/react-api/hoc';
 import keyring from '@polkadot/ui-keyring';
-import { assert, isFunction } from '@polkadot/util';
-import { format } from '@polkadot/util/logger';
+import { assert, isFunction, loggerFormat } from '@polkadot/util';
 
 import ledgerSigner from './LedgerSigner';
 import Transaction from './Transaction';
@@ -593,7 +592,7 @@ class Signer extends React.PureComponent<Props, State> {
 
       const result = await rpc[section][method](...values);
 
-      console.log('submitRpc: result ::', format(result));
+      console.log('submitRpc: result ::', loggerFormat(result));
 
       return {
         result,

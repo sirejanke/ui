@@ -25,7 +25,8 @@ const ZERO_BALANCE: DeriveBalancesAll = {
   vestedClaimable: createType(registry, 'Balance'),
   vestingEndBlock: createType(registry, 'Balance'),
   vestingLocked: createType(registry, 'Balance'),
-  vestingPerBlock: createType(registry, 'Balance')
+  vestingPerBlock: createType(registry, 'Balance'),
+  additional: [],
 };
 
 const ZERO_FEES_BALANCES: DeriveFees = {

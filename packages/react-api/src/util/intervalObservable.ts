@@ -4,8 +4,7 @@
 
 import { CallState } from '../types';
 
-import { Subscription } from 'rxjs';
-import { interval } from 'rxjs/observable/interval';
+import { interval, Subscription } from '@polkadot/x-rxjs';
 
 const interval$ = interval(500);
 

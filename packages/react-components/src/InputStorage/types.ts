@@ -3,5 +3,6 @@
 // of the Apache-2.0 license. See the LICENSE file for details.
 
 import { StorageEntryBase } from '@polkadot/api/types';
+import type { AnyTuple } from '@polkadot/types/types';
 
-export type StorageEntryPromise = StorageEntryBase<'promise', any>;
+export type StorageEntryPromise = StorageEntryBase<'promise', any, AnyTuple>;

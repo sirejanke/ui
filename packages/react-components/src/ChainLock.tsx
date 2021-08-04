@@ -5,7 +5,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useApi } from '@polkadot/react-hooks';
-import chains from '@polkadot/ui-settings/defaults/chains';
+import { chains } from '@polkadot/ui-settings/defaults/chains';
 
 import { useTranslation } from './translate';
 import Toggle from './Toggle';
@@ -17,7 +17,6 @@ interface Props {
   onChange: (genesisHash: string | null) => void;
   preventDefault?: boolean;
 }
-
 function calcLock (apiGenesis: string, genesisHash: string | null): boolean {
   if (!genesisHash) {
     return false;
@@ -29,6 +28,18 @@ function calcLock (apiGenesis: string, genesisHash: string | null): boolean {
     ) || [apiGenesis]
   ).includes(genesisHash);
 }
+
+// function calcLock (apiGenesis: string, genesisHash: string | null): boolean {
+//   if (!genesisHash) {
+//     return false;
+//   }
+//
+//   return (
+//     Object.values(chains).find((hashes): boolean =>
+//       hashes.includes(apiGenesis)
+//     ) || [apiGenesis]
+//   ).includes(genesisHash);
+// }
 
 function ChainLock ({ className, genesisHash, isDisabled, onChange, preventDefault }: Props): React.ReactElement<Props> | null {
   const { t } = useTranslation();
