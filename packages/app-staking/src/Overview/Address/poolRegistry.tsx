@@ -60,6 +60,13 @@ export const poolRegistry: Record<string, any> = {
     "5DNr4Tpi8UnMAQd9fCTbcQStqvrjXvsdd2jVFGvSP9M9ijAk": "Nosia",
     "5CJoGWxLYyqJ7VCLJya3SuTSiqePTBLQ6eKYdzfHWgG8cNea": "Prisma",
     "5HZ37cng5Y5DtiV9Yrne46n9GwBAUKQYiAr9vLujjWddbGj3": "Prisma",
-    "5DHX8dDuxM36S13Tf9DQSE4vUphjjFNbKeDpVd6ZnS5Pz47X": "Prisma"
+    "5DHX8dDuxM36S13Tf9DQSE4vUphjjFNbKeDpVd6ZnS5Pz47X": "Prisma",
+    "5GjDYsvScV6Bo4gwxibrxc6Xjnqkosv8V5pixz9sqJ4FLhAt": "CoolJapan",
+    "5CkTsRHXpCLC5ERZQqKvhHdZGc4zkFym9ZseS1Udd5QHbaQ8": "CoolJapan",
+    "5G6GSfUVRuUgNeCqHNc23S1nW8TDo5yn3qTU3D5SXW7mvhW6": "CoolJapan",
+    "5GEtjpujbteyQN7bcgSu4hc2A4jD9HrpZ9kvutXfMwy3RNNv": "MoyoriNet",
+    "5CypTaFf6qsQESJKNQkUA6cs6TRdNfs1FTTApMtoisrPRGot": "MoyoriNet",
+    "5HNFjjmuAiajFTHxbmfAjk1uBAK49qKGejuBJ9coZ8DQGdhs": "MoyoriNet",
+    "5DRW9CexN74DbFCm4vch9nzjSk48iNGWnLzUHzxgXCKsPVTp": "Akina"   
   }
 };
