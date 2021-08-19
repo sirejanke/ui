@@ -25,7 +25,7 @@ import { createType } from '@polkadot/types';
 import { Button, InputBalance, Modal, Toggle, Output, ErrorBoundary, InputNumber } from '@polkadot/react-components';
 import { registry } from '@polkadot/react-api';
 import { withApi, withMulti, withObservable } from '@polkadot/react-api/hoc';
-import keyring from '@polkadot/ui-keyring';
+import { keyring } from '@polkadot/ui-keyring';
 import { assert, isFunction, loggerFormat } from '@polkadot/util';
 
 import ledgerSigner from './LedgerSigner';

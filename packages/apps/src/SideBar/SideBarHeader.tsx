@@ -46,7 +46,6 @@ const SideBarHeaderContainer = styled.div`
 
 function SideBarHeader ({ _toggleModal, runtimeVersion }: Props): React.ReactElement<Props> {
   const { t } = useTranslation();
-
   return (
     <SideBarHeaderContainer
       className='apps--SideBar-logo'

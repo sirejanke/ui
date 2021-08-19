@@ -62,7 +62,6 @@ function formatMeta (meta?: Meta): React.ReactNode | null {
 function Expander ({ children, className = '', help, helpIcon, isOpen, isPadded, onClick, renderChildren, summary, summaryHead, summaryMeta, summarySub, withHidden }: Props): React.ReactElement<Props> {
   const { t } = useTranslation();
   const [isExpanded, toggleExpanded] = useToggle(isOpen, onClick);
-
   const demandChildren = useMemo(
       () => isExpanded && renderChildren && renderChildren(),
       [isExpanded, renderChildren]
@@ -82,7 +81,6 @@ function Expander ({ children, className = '', help, helpIcon, isOpen, isPadded,
       () => !!renderChildren || (!!children && (!Array.isArray(children) || children.length !== 0)),
       [children, renderChildren]
   );
-
   return (
       <div className={`ui--Expander${isExpanded ? ' isExpanded' : ''}${isPadded ? ' isPadded' : ''}${hasContent ? ' hasContent' : ''} ${className}`}>
         <div

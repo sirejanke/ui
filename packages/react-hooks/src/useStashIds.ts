@@ -4,7 +4,7 @@
 import type { AccountId } from '@polkadot/types/interfaces';
 
 import useApi  from './useApi';
-import useCall from './useCall';
+import { useCall } from './useCall';
 
 const transformStashes = {
   transform: (stashes: AccountId[]) => stashes.map((accountId) => accountId.toString())

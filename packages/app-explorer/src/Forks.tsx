@@ -344,7 +344,9 @@ function Forks ({ className, t }: Props): React.ReactElement<Props> | null {
     };
 
     (async (): Promise<void> => {
+      // @ts-ignore
       _subFinHead = await api.rpc.chain.subscribeFinalizedHeads(_newFinalized);
+      // @ts-ignore
       _subNewHead = await api.rpc.chain.subscribeNewHeads(_newHeader);
     })();
 
@@ -368,7 +370,7 @@ function Forks ({ className, t }: Props): React.ReactElement<Props> | null {
       </SummaryBox>
       <table>
         <tbody>
-          {renderRows(createRows(tree.arr))}
+        {renderRows(createRows(tree.arr))}
         </tbody>
       </table>
     </div>

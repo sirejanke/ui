@@ -9,6 +9,7 @@ import appSettings from '@polkadot/ui-settings';
 import template from './123code';
 import accounts from './accounts';
 import claims from './claims';
+import council from './council';
 import explorer from './explorer';
 import extrinsics from './extrinsics';
 import genericAsset from './generic-asset';
@@ -30,6 +31,7 @@ const routes: Routes = appSettings.uiMode === 'light'
     genericAsset,
     explorer,
     claims,
+    council,
     transfer,
     staking,
     null,
@@ -43,6 +45,7 @@ const routes: Routes = appSettings.uiMode === 'light'
     genericAsset,
     explorer,
     claims,
+    council,
     transfer,
     staking,
     null,

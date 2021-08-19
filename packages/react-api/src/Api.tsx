@@ -20,7 +20,8 @@ import ApiContext from './ApiContext';
 import registry from './typeRegistry';
 import {Api as ApiPromise} from '@cennznet/api';
 import * as staking from './staking';
-import { AssetId, AssetInfo, u32 } from '@cennznet/types';
+// import * as governance from './governance';
+import { AssetId, AssetInfoV41 as AssetInfo, u32 } from '@cennznet/types';
 import {AssetRegistry} from '@polkadot/app-generic-asset/assetsRegistry';
 import { u8aToString } from '@polkadot/util';
 
@@ -42,9 +43,7 @@ interface InjectedAccountExt {
   };
 }
 
-// const DEFAULT_DECIMALS = createType(registry, 'u32', 4);
-// const DEFAULT_SS58 = createType(registry, 'u32', addressDefaults.prefix);
-export const DEFAULT_DECIMALS = registry.createType('u32', 12);
+export const DEFAULT_DECIMALS = registry.createType('u32', 4);
 export const DEFAULT_SS58 = registry.createType('u32', addressDefaults.prefix);
 const injectedPromise = web3Enable('cennznet.io');
 let api: ApiPromise;
@@ -160,7 +159,14 @@ export default function Api ({ children, url }: Props): React.ReactElement<Props
   useEffect((): void => {
     const signer = new ApiSigner(queuePayload, queueSetTxStatus);
     const derives = { staking };
-    api = new ApiPromise({ provider: url, registry, derives, signer });
+
+    api = new ApiPromise({ provider: url, registry, derives, signer, types: {
+      Nominations: {
+          targets: 'Vec<AccountId>',
+          submittedIn: 'EraIndex',
+          suppressed: 'bool'
+        }
+    } });
 
     api.on('connected', (): void => setIsApiConnected(true));
     api.on('disconnected', (): void => setIsApiConnected(false));

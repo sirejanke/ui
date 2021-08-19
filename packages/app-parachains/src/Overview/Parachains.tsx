@@ -21,7 +21,7 @@ function Parachains ({ t }: Props): React.ReactElement<Props> {
       emptyText={t('no deployed parachains')}
       headerText={t('parachains')}
     >
-      {parachains?.map((paraId): React.ReactNode => (
+      {parachains?.map((paraId: BN): React.ReactNode => (
         <Parachain
           key={paraId.toString()}
           paraId={paraId}

@@ -24,7 +24,7 @@ export default function Members ({ className, info }: Props): React.ReactElement
 
   useEffect((): void => {
     members && setFiltered(
-      members.filter((member): boolean => !info || !info.hasDefender || !member.accountId.eq(info.defender))
+      members.filter((member: DeriveSocietyMember): boolean => !info || !info.hasDefender || !member.accountId.eq(info.defender))
     );
   }, [info, members]);
 

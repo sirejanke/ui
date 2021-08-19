@@ -8,7 +8,7 @@ import { I18nProps } from '@polkadot/react-components/types';
 
 import React from 'react';
 import styled from 'styled-components';
-import { HeaderExtended } from '@polkadot/api-derive';
+import type { HeaderExtended } from '@polkadot/api-derive/types';
 import { Columar } from '@polkadot/react-components';
 import { useApi, useCall } from '@polkadot/react-hooks';
 

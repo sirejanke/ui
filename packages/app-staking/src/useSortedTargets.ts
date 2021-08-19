@@ -9,7 +9,7 @@ import type { DeriveSessionInfo, DeriveStakingElected, DeriveStakingWaiting } fr
 import type { ValidatorPrefsTo196 } from '@polkadot/types/interfaces';
 import { registry } from '@polkadot/react-api';
 import { calcInflation, useAccounts, useApi, useCall } from '@polkadot/react-hooks';
-import { BN_ONE, BN_ZERO } from '@polkadot/util';
+import { BN_ZERO } from '@polkadot/util';
 
 import type { SortedTargets, TargetSortBy, ValidatorInfo } from './types';
 import {AssetId} from "@cennznet/types";
@@ -88,7 +88,6 @@ function sortValidators (list: ValidatorInfo[]): ValidatorInfo[] {
 function extractSingle (allAccounts: string[], derive: DeriveStakingElected | DeriveStakingWaiting, favorites: string[], perValidatorReward: BN, { activeEra, eraLength, lastEra, sessionLength }: LastEra, historyDepth?: BN): [ValidatorInfo[], string[]] {
   const nominators: Record<string, boolean> = {};
   const emptyExposure = registry.createType('Exposure');
-  const earliestEra = historyDepth && lastEra.sub(historyDepth).addn(1);
   const list = derive.info.map(({ accountId, exposure = emptyExposure, stakingLedger, validatorPrefs }): ValidatorInfo => {
     // some overrides (e.g. Darwinia Crab) does not have the own field in Exposure
     let bondOwn = exposure.own?.unwrap() || BN_ZERO;
@@ -103,18 +102,9 @@ function extractSingle (allAccounts: string[], derive: DeriveStakingElected | De
       ? (validatorPrefs as unknown as ValidatorPrefsTo196).validatorPayment.unwrap() as BN
       : validatorPrefs.commission.unwrap().mul(perValidatorReward).div(PERBILL);
     const key = accountId.toString();
-    const lastEraPayout = !lastEra.isZero()
-      ? stakingLedger.claimedRewards[stakingLedger.claimedRewards.length - 1]
-      : undefined;
 
     // only use if it is more recent than historyDepth
-    let lastPayout: BN | undefined = earliestEra && lastEraPayout && lastEraPayout.gt(earliestEra)
-      ? lastEraPayout
-      : undefined;
-
-    if (lastPayout && !sessionLength.eq(BN_ONE)) {
-      lastPayout = lastEra.sub(lastPayout).mul(eraLength);
-    }
+    let lastPayout: BN | undefined = undefined;
 
     return {
       accountId,
@@ -136,12 +126,10 @@ function extractSingle (allAccounts: string[], derive: DeriveStakingElected | De
         return isNominating || allAccounts.includes(nominator);
       }, allAccounts.includes(key)),
       key,
-      knownLength: activeEra.sub(stakingLedger.claimedRewards[0] || activeEra),
+      knownLength: activeEra.sub(activeEra),
       lastPayout,
       numNominators: (exposure.others || []).length,
-      numRecentPayouts: earliestEra
-        ? stakingLedger.claimedRewards.filter((era) => era.gte(earliestEra)).length
-        : 0,
+      numRecentPayouts: 0,
       rankBondOther: 0,
       rankBondOwn: 0,
       rankBondTotal: 0,

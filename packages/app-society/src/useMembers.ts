@@ -17,10 +17,10 @@ export default function useMembers (): OwnMembers {
   useEffect((): void => {
     if (allAccounts && members) {
       const allMembers = members
-        .filter((member): boolean => !member.isSuspended)
-        .map((member): string => member.accountId.toString());
+        .filter((member: DeriveSocietyMember): boolean => !member.isSuspended)
+        .map((member: DeriveSocietyMember): string => member.accountId.toString());
       const ownMembers = allMembers
-        .filter((address): boolean => allAccounts.includes(address));
+        .filter((address: string): boolean => allAccounts.includes(address));
 
       setOwnState({ allMembers, isMember: ownMembers.length !== 0, ownMembers });
     }

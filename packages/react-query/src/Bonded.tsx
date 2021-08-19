@@ -4,7 +4,7 @@
 
 import { BareProps } from '@polkadot/react-api/types';
 import { AccountId, AccountIndex, Address, StakingLedger } from '@polkadot/types/interfaces';
-
+import {Option} from "@cennznet/types";
 import React from 'react';
 import { useApi, useCall } from '@polkadot/react-hooks';
 
@@ -19,11 +19,11 @@ interface Props extends BareProps {
 export default function BondedDisplay ({ children, className, label, params }: Props): React.ReactElement<Props> {
   const { api } = useApi();
   const controllerId = useCall<AccountId | null>(api.query.staking.bonded, [params], {
-    transform: (value): AccountId | null =>
+    transform: (value: Option<AccountId>): AccountId | null =>
       value.unwrapOr(null)
   });
   const stakingLedger = useCall<StakingLedger | null>(controllerId && api.query.staking.ledger, [controllerId], {
-    transform: (value): StakingLedger | null =>
+    transform: (value: Option<StakingLedger>): StakingLedger | null =>
       value.unwrapOr(null)
   });
 

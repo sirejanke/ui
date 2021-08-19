@@ -1,8 +1,9 @@
 // Copyright 2017-2020 @polkadot/api-derive authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { AccountId, Exposure, RewardDestination, StakingLedger, ValidatorPrefs } from '@polkadot/types/interfaces';
+import type { AccountId, Exposure, RewardDestination, ValidatorPrefs } from '@polkadot/types/interfaces';
 import type { DeriveSessionIndexes } from '@polkadot/api-derive/session/types';
+import { StakingLedger } from '@cennznet/types';
 
 export interface DeriveStakingStash {
   controllerId: AccountId | null;

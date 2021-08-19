@@ -29,6 +29,7 @@ const toFormattedBalance = (
 ): string => {
   const DEFAULT_FIXED_POINT = formatBalance.getDefaults().decimals;
   const DEFAULT_UNIT = '';
+
   const {
     value,
     fixedPoint = DEFAULT_FIXED_POINT,
@@ -72,7 +73,7 @@ const toFormattedBalance = (
   // Note: we could use something simpler like `toLocaleString` but it cannot handle big number input.
   const formattedBalance = formatBalance(balance, polkadotFormatBalanceOptions);
   const integerPart = formattedBalance.split('.')[0];
-  const decimalPart = trim ? 
+  const decimalPart = trim ?
     balance.substr(-fixedPoint).replace(/0+$/, '') :
     balance.substr(-fixedPoint);
 
@@ -89,6 +90,7 @@ const toFormattedBalance = (
 const decimalToFixedWidth = (
   { value, fixedPoint, pad = true }: { value: string, fixedPoint: number, pad?: boolean }
 ): string => {
+  console.log('Fixed point:::',fixedPoint?.toString());
     let [prefix, postfix = ''] = value.split('.');
     postfix = pad && postfix.length <= fixedPoint ? postfix.padEnd(fixedPoint, '0') : postfix.substring(0, fixedPoint);
     // this will also remove leading 0s for fixed width representation

@@ -37,6 +37,8 @@ function AddressSmall ({ className, defaultName, onClickName, overrideName, togg
   };
 
   const { t } = useTranslation();
+  console.log('defaultName::',defaultName);
+  console.log('value:', value?.toString());
   return (
     <div className={`ui--AddressSmall ${className}`}>
       <Popup
@@ -61,8 +63,8 @@ function AddressSmall ({ className, defaultName, onClickName, overrideName, togg
       <Popup
         hoverable={true}
         content={
-          <CopyToClipboard text={value as string} onCopy={_onCopy}>
-            <div>{value}<Icon name='copy outline'/></div>
+          <CopyToClipboard text={value?.toString() as string} onCopy={_onCopy}>
+            <div>{value?.toString()}<Icon name='copy outline'/></div>
           </CopyToClipboard>
         }
         trigger={

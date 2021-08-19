@@ -36,7 +36,7 @@ export default function SummaryBar (props: Props): React.ReactElement<Props> {
         </Bubble>
         {validators && (
           <Bubble icon='chess queen' label='validators'>{
-            validators.validators.map((accountId, index): React.ReactNode => (
+            validators.validators.map((accountId: string | Uint8Array | null | undefined, index: string | number | undefined): React.ReactNode => (
               <IdentityIcon key={index} value={accountId} size={20} />
             ))
           }</Bubble>

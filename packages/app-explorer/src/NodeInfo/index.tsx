@@ -16,13 +16,29 @@ import translate from './translate';
 
 const POLL_TIMEOUT = 9900;
 
+// async function retrieveInfo (api: ApiPromise): Promise<Partial<Info>> {
+//   try {
+//     const [blockNumber, health, peers, extrinsics] = await Promise.all([
+//       api.derive.chain.bestNumber(),
+//       api.rpc.system.health(),
+//       api.rpc.system.peers(),
+//       api.rpc.author.pendingExtrinsics()
+//     ]);
+//
+//     return { blockNumber, extrinsics, health, peers };
+//   } catch (error) {
+//     return {};
+//   }
+// }
+
+
 async function retrieveInfo (api: ApiPromise): Promise<Partial<Info>> {
   try {
     const [blockNumber, health, peers, extrinsics] = await Promise.all([
       api.derive.chain.bestNumber(),
-      api.rpc.system.health(),
-      api.rpc.system.peers(),
-      api.rpc.author.pendingExtrinsics()
+      api.rpc.system.health().catch(() => null),
+      api.rpc.system.peers().catch(() => null),
+      api.rpc.author.pendingExtrinsics().catch(() => null)
     ]);
 
     return { blockNumber, extrinsics, health, peers };

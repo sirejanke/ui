@@ -13,6 +13,7 @@ import { classes } from '@polkadot/react-components/util';
 import ParamComp from './ParamComp';
 import translate from './translate';
 import { createValue } from './values';
+import Holder from './Holder';
 
 interface Props extends I18nProps {
   isDisabled?: boolean;
@@ -30,6 +31,8 @@ interface State {
   values?: RawParams;
   assetIdContext?: string;
 }
+
+export { Holder };
 
 class Params extends React.PureComponent<Props, State> {
   public state: State = {

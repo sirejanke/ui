@@ -61,5 +61,19 @@
   "no unapplied slashes found": "no unapplied slashes found",
   "Cancel": "Cancel",
   "Revert": "Revert",
-  "Vote on proposal": "Vote on proposal"
+  "Vote on proposal": "Vote on proposal",
+  "The proposal that is being voted on. It will pass when the threshold is reached.": "The proposal that is being voted on. It will pass when the threshold is reached.",
+  "You are voting with this collective's prime account. The vote will be the default outcome in case of any abstentions.": "You are voting with this collective's prime account. The vote will be the default outcome in case of any abstentions.",
+  "The council account for this vote. The selection is filtered by the current members.": "The council account for this vote. The selection is filtered by the current members.",
+  "Vote Nay": "Vote Nay",
+  "Vote Aye": "Vote Aye",
+  "EnactmentDelay": "EnactmentDelay",
+  "Justification URI": "Justification URI",
+  "preimage {{hash}}": "preimage {{hash}}",
+  "proposal hash": "proposal hash",
+  "A link to the justification behind this proposal": "A link to the justification behind this proposal",
+  "Enactment Delay": "Enactment Delay",
+  "Delay the affect of this proposal e.g. to allow ecosystem updates": "Delay the affect of this proposal e.g. to allow ecosystem updates",
+  "Positive number": "Positive number",
+  "🟢 Voters ({{count}})": "🟢 Voters ({{count}})"
 }

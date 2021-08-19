@@ -1,12 +1,13 @@
 // Copyright 2017-2020 @polkadot/api-derive authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
+
 import type { Observable } from '@polkadot/x-rxjs';
 import type { ApiInterfaceRx } from '@polkadot/api/types';
 import type { Option } from '@polkadot/types';
-import type { AccountId, EraIndex, Exposure, Nominations, RewardDestination, StakingLedger, ValidatorPrefs } from '@polkadot/types/interfaces';
+import type { AccountId, EraIndex, Exposure, Nominations, RewardDestination, ValidatorPrefs } from '@polkadot/types/interfaces';
 import type { ITuple } from '@polkadot/types/types';
-import type { DeriveStakingQuery } from '@polkadot/api-derive/types';
+import type { DeriveStakingQuery } from './types';
 
 import { combineLatest, of } from '@polkadot/x-rxjs';
 import { map, switchMap } from '@polkadot/x-rxjs/operators';
@@ -14,6 +15,7 @@ import { map, switchMap } from '@polkadot/x-rxjs/operators';
 import { isFunction } from '@polkadot/util';
 
 import { memo } from '@polkadot/api-derive/util';
+import { StakingLedger } from '@cennznet/types';
 
 interface QueryFlags {
   withDestination?: boolean;
@@ -48,6 +50,7 @@ function parseDetails (stashId: AccountId, [controllerIdOpt, nominatorsOpt, rewa
 }
 
 function retrievePrev (api: ApiInterfaceRx, stashId: AccountId): Observable<MultiResult> {
+  console.log('retrievePrev::');
   return api.queryMulti<MultiResult>([
     [api.query.staking.bonded, stashId],
     [api.query.staking.nominators, stashId],
@@ -63,7 +66,7 @@ function retrieveCurr (api: ApiInterfaceRx, stashIds: AccountId[], activeEra: Er
   const emptyRewa = api.registry.createType('RewardDestination');
   const emptyExpo = api.registry.createType('Exposure');
   const emptyPrefs = api.registry.createType('ValidatorPrefs');
-
+  console.log('withNominations::',withNominations);
   return combineLatest([
     withLedger
       ? api.query.staking.bonded.multi<Option<AccountId>>(stashIds)
@@ -81,10 +84,14 @@ function retrieveCurr (api: ApiInterfaceRx, stashIds: AccountId[], activeEra: Er
       ? api.query.staking.erasStakers.multi<Exposure>(stashIds.map((stashId) => [activeEra, stashId]))
       : of(stashIds.map(() => emptyExpo))
   ]).pipe(
-    map(([controllerIdOpt, nominatorsOpt, rewardDestination, validatorPrefs, exposure]): MultiResultCombo[] =>
-      controllerIdOpt.map((controllerIdOpt, index): MultiResultCombo =>
-        [controllerIdOpt, nominatorsOpt[index], rewardDestination[index], validatorPrefs[index], exposure[index]]
-      )
+    map(([controllerIdOpt, nominatorsOpt, rewardDestination, validatorPrefs, exposure]): MultiResultCombo[] => {
+        console.log('nominatorsOpt:::::',nominatorsOpt.toString());
+        const a = controllerIdOpt.map((controllerIdOpt, index): MultiResultCombo =>
+          [controllerIdOpt, nominatorsOpt[index], rewardDestination[index], validatorPrefs[index], exposure[index]]
+        );
+        console.log('a::::',a);
+        return a;
+      }
     )
   );
 }

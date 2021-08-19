@@ -1,14 +1,16 @@
-// Copyright 2017-2020 @polkadot/react-hooks authors & contributors
+// Copyright 2017-2021 @polkadot/react-hooks authors & contributors
 // SPDX-License-Identifier: Apache-2.0
+
+import type { RpcPromiseResult } from '@polkadot/api/types';
+import type { AnyFunction, Codec } from '@polkadot/types/types';
+import type { CallOptions, CallParam, CallParams } from './types';
+import type { MountedRef } from './useIsMountedRef';
 
 import { useEffect, useRef, useState } from 'react';
 
-import type { Codec } from '@polkadot/types/types';
 import { isNull, isUndefined } from '@polkadot/util';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import type { CallOptions, CallParam, CallParams } from './types';
-import { MountedRef, default as useIsMountedRef } from './useIsMountedRef';
+import { default as useIsMountedRef } from './useIsMountedRef';
 
 type VoidFn = () => void;
 
@@ -18,16 +20,18 @@ type VoidFn = () => void;
 // to cater for our usecase.
 type TrackFnResult = Promise<unknown>;
 
-interface TrackFn {
+interface QueryTrackFn {
   (...params: CallParam[]): TrackFnResult;
   meta?: {
-    type: {
+    type?: {
       isDoubleMap: boolean;
     };
   };
 }
 
-interface Tracker {
+type TrackFn = RpcPromiseResult<AnyFunction> | QueryTrackFn;
+
+export interface Tracker {
   isActive: boolean;
   serialized: string | null;
   subscriber: TrackFnResult | null;
@@ -38,7 +42,7 @@ interface TrackerRef {
 }
 
 // the default transform, just returns what we have
-function transformIdentity <T> (value: unknown): T {
+export function transformIdentity <T> (value: unknown): T {
   return value as T;
 }
 
@@ -47,13 +51,13 @@ function extractParams <T> (fn: unknown, params: unknown[], { paramMap = transfo
   return [
     JSON.stringify({ f: (fn as { name: string })?.name, p: params }),
     params.length === 0 || !params.some((param) => isNull(param) || isUndefined(param))
-        ? paramMap(params)
-        : null
+      ? paramMap(params)
+      : null
   ];
 }
 
 // unsubscribe and remove from  the tracker
-function unsubscribe (tracker: TrackerRef): void {
+export function unsubscribe (tracker: TrackerRef): void {
   tracker.current.isActive = false;
 
   if (tracker.current.subscriber) {
@@ -70,19 +74,20 @@ function subscribe <T> (mountedRef: MountedRef, tracker: TrackerRef, fn: TrackFn
 
   setTimeout((): void => {
     if (mountedRef.current) {
-      if (fn && (!fn.meta || !fn.meta.type?.isDoubleMap || validParams.length === 2)) {
-        // swap to acive mode
+      // FIXME NMap support
+      if (fn && (!(fn as QueryTrackFn).meta?.type?.isDoubleMap || validParams.length === 2)) {
+        // swap to active mode
         tracker.current.isActive = true;
 
-        tracker.current.subscriber = (fn as (...params: unknown[]) => Promise<() => void>)(...params, (value: Codec): void => {
+        tracker.current.subscriber = (fn as (...params: unknown[]) => Promise<VoidFn>)(...params, (value: Codec): void => {
           // we use the isActive flag here since .subscriber may not be set on immediate callback)
           if (mountedRef.current && tracker.current.isActive) {
             mountedRef.current && tracker.current.isActive && setValue(
-                withParams
-                    ? [params, transform(value)] as any
-                    : withParamsTransform
-                    ? transform([params, value])
-                    : transform(value)
+              withParams
+                ? [params, transform(value)] as any
+                : withParamsTransform
+                ? transform([params, value])
+                : transform(value)
             );
           }
         });
@@ -97,7 +102,7 @@ function subscribe <T> (mountedRef: MountedRef, tracker: TrackerRef, fn: TrackFn
 //  - returns a promise with an unsubscribe function
 //  - has a callback to set the value
 // FIXME The typings here need some serious TLC
-export default function useCall <T> (fn: TrackFn | undefined | null | false, params?: CallParams, options?: CallOptions<T>): T | undefined {
+export function useCall <T> (fn: TrackFn | undefined | null | false, params?: CallParams | null, options?: CallOptions<T>): T | undefined {
   const mountedRef = useIsMountedRef();
   const tracker = useRef<Tracker>({ isActive: false, serialized: null, subscriber: null });
   const [value, setValue] = useState<T | undefined>((options || {}).defaultValue);

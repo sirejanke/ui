@@ -28,7 +28,7 @@ export default function Candidates ({ allMembers, className, isMember, ownMember
         ? (
           <Table>
             <Table.Body>
-              {candidates.map((candidate): React.ReactNode => (
+              {candidates.map((candidate: DeriveSocietyCandidate): React.ReactNode => (
                 <Candidate
                   allMembers={allMembers}
                   isMember={isMember}

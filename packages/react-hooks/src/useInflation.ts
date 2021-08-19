@@ -9,7 +9,7 @@ import type { ApiPromise } from '@polkadot/api';
 
 import type { Inflation } from './types';
 import  useApi  from './useApi';
-import  useCall  from './useCall';
+import  { useCall }  from './useCall';
 
 const DEFAULT_PARAMS = {
   falloff: 0.05,
