@@ -35,6 +35,7 @@
     "@polkadot/extension-dapp": "^0.22.0-beta.4",
     "@polkadot/x-rxjs": "^5.9.2",
     "@polkadot/networks": "^3.6.1",
+    "@polkadot/ui-keyring": "0.70.1",
     "rxjs-compat": "^6.5.3"
   }
 }
