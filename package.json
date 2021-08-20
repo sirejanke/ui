@@ -21,9 +21,7 @@
     "@babel/preset-env": "7.14.1",
     "babel-core": "^7.0.0-bridge.0",
     "typescript": "^3.8.1",
-    "babel-jest": "^26.6.3",
-    "@polkadot/wasm-crypto": "4.1.2",
-    "@polkadot/util-crypto": "5.9.2"
+    "babel-jest": "^26.6.3"
   },
   "scripts": {
     "analyze": "yarn run build && cd packages/apps && yarn run source-map-explorer build/main.*.js",
