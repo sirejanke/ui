@@ -24,7 +24,7 @@
     "babel-jest": "^26.6.3"
   },
   "scripts": {
-    "rebuild-deps": "electron-builder install-app-deps",
+    "prebuild-install": "electron-builder install-app-deps",
     "analyze": "yarn run build && cd packages/apps && yarn run source-map-explorer build/main.*.js",
     "build": "yarn run build:i18n && yarn run build:code",
     "build:code": "NODE_ENV=production node_modules/@polkadot/dev/scripts/polkadot-dev-build-ts.js",
@@ -35,7 +35,7 @@
     "clean:i18n": "rm -rf packages/apps/public/locales/en && mkdir -p packages/apps/public/locales/en",
     "lint": "polkadot-dev-run-lint",
     "postinstall": "polkadot-dev-yarn-only",
-    "test": "yarn rebuild-deps && jest packages/react-api",
+    "test": "jest packages/react-api",
     "vanitygen": "node packages/app-accounts/scripts/vanitygen.js",
     "start": "cd packages/apps && webpack --config webpack.config.js"
   },
