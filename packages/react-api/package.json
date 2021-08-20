@@ -36,7 +36,6 @@
     "@polkadot/x-rxjs": "^5.9.2",
     "@polkadot/networks": "^3.6.1",
     "@polkadot/ui-keyring": "0.70.1",
-    "@polkadot/hw-ledger-transports": "^7.2.1",
     "rxjs-compat": "^6.5.3"
   }
 }

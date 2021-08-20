@@ -32,5 +32,5 @@ module.exports = {
   modulePathIgnorePatterns: ['<rootDir>/packages/apps-config/build'],
   testEnvironment: 'jsdom',
   testTimeout: 90000,
-  transformIgnorePatterns: ['/node_modules/(?!@polkadot|@cennznet|@ledgerhq|@babel/runtime/helpers/esm/|@substrate|smoldot)']
+  transformIgnorePatterns: ['/node_modules/(?!@polkadot|@cennznet|@ledgerhq|usb-detection|@babel/runtime/helpers/esm/|@substrate|smoldot)']
 };
