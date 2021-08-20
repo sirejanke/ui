@@ -65,7 +65,6 @@ jobs:
     - name: test
       run: |
         yarn install --frozen-lockfile
-        yarn dedupe
         yarn test
 
   build_code:
