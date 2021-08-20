@@ -12,8 +12,8 @@
   "dependencies": {
     "@polkadot/keyring": "2.3.1",
     "@polkadot/util-crypto": "2.3.1",
-    "@polkadot/keyring-latest": "npm:@polkadot/keyring@6.11.1",
-    "@polkadot/util-crypto": "npm:@polkadot/util-crypto@6.11.1"
+    "@polkadot/keyring-latest": "npm:@polkadot/keyring@5.9.2",
+    "@polkadot/util-crypto": "npm:@polkadot/util-crypto@5.9.2"
   },
   "devDependencies": {
     "rimraf": "^3.0.2"

@@ -3077,16 +3077,7 @@
     "@polkadot/util" "^5.9.2"
     "@zondax/ledger-polkadot" "^0.13.1"
 
-"@polkadot/keyring@6.11.1", "@polkadot/keyring@^6.11.1", "@polkadot/keyring@^6.6.1":
-  version "6.11.1"
-  resolved "https://registry.yarnpkg.com/@polkadot/keyring/-/keyring-6.11.1.tgz#2510c349c965c74cc2f108f114f1048856940604"
-  integrity sha512-rW8INl7pO6Dmaffd6Df1yAYCRWa2RmWQ0LGfJeA/M6seVIkI6J3opZqAd4q2Op+h9a7z4TESQGk8yggOEL+Csg==
-  dependencies:
-    "@babel/runtime" "^7.14.6"
-    "@polkadot/util" "6.11.1"
-    "@polkadot/util-crypto" "6.11.1"
-
-"@polkadot/keyring@^5.9.2":
+"@polkadot/keyring@5.9.2", "@polkadot/keyring@^5.9.2":
   version "5.9.2"
   resolved "https://registry.yarnpkg.com/@polkadot/keyring/-/keyring-5.9.2.tgz#f8011a524767bb8f000bec3e26178fc5feffae5b"
   integrity sha512-h9AhrzyUmludbmo0ixRFLEyRJvUc7GTl5koSBrG0uv+9Yn0I/7YRgAKn3zKcUVZyvgoLvzZnBFwekGbdFcl9Yg==
@@ -3094,6 +3085,15 @@
     "@babel/runtime" "^7.13.8"
     "@polkadot/util" "5.9.2"
     "@polkadot/util-crypto" "5.9.2"
+
+"@polkadot/keyring@^6.11.1", "@polkadot/keyring@^6.6.1":
+  version "6.11.1"
+  resolved "https://registry.yarnpkg.com/@polkadot/keyring/-/keyring-6.11.1.tgz#2510c349c965c74cc2f108f114f1048856940604"
+  integrity sha512-rW8INl7pO6Dmaffd6Df1yAYCRWa2RmWQ0LGfJeA/M6seVIkI6J3opZqAd4q2Op+h9a7z4TESQGk8yggOEL+Csg==
+  dependencies:
+    "@babel/runtime" "^7.14.6"
+    "@polkadot/util" "6.11.1"
+    "@polkadot/util-crypto" "6.11.1"
 
 "@polkadot/metadata@4.17.1", "@polkadot/metadata@^4.9.3-11":
   version "4.17.1"

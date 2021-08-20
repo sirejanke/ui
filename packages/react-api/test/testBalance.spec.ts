@@ -9,13 +9,12 @@ describe('e2e transactions', () => {
   beforeAll(async () => {
     await cryptoWaitReady();
 
-    const keyring = new Keyring({ type: 'sr25519' });
-    alice = keyring.addFromUri('//Alice');
-    bob = keyring.addFromUri('//Bob');
-
     api = await ApiPromise.create({
       provider: 'ws://localhost:9944',
     });
+    const keyring = new Keyring({ type: 'sr25519' });
+    alice = keyring.addFromUri('//Alice');
+    bob = keyring.addFromUri('//Bob');
   });
 
   afterAll(() => {
