@@ -21,7 +21,8 @@
     "@babel/preset-env": "7.14.1",
     "babel-core": "^7.0.0-bridge.0",
     "typescript": "^3.8.1",
-    "babel-jest": "^26.6.3"
+    "babel-jest": "^26.6.3",
+    "@polkadot/util": "5.9.2"
   },
   "scripts": {
     "prebuild-install": "electron-builder install-app-deps",
