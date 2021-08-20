@@ -21,10 +21,10 @@ function ProposalCell ({ className = '', imageHash, proposal }: Props): React.Re
   const { t } = useTranslation();
   if (!proposal) {
     const textHash = imageHash?.toString();
-
+    const hashDisplay = textHash ? `${textHash.slice(0, 8)}…${textHash.slice(-8)}`: '';
     return (
       <td className={`${className} all`}>
-        {t('preimage {{hash}}', { replace: { hash: `${textHash?.slice(0, 8)}…${textHash?.slice(-8)}` } })}
+        {t('preimage {{hash}}', { replace: { hash: hashDisplay } })}
       </td>
     );
   }

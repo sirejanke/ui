@@ -1,4 +1,4 @@
-import { Keyring } from '@polkadot/api';
+import { Keyring } from '@polkadot/keyring';
 import { cryptoWaitReady } from '@polkadot/util-crypto';
 import {Api as ApiPromise} from '@cennznet/api';
 

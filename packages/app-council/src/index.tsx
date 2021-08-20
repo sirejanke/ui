@@ -58,7 +58,7 @@ function App ({ basePath, className }: Props): React.ReactElement<Props> {
             },
             {
               name: 'motions',
-              text: t('Motions ({{count}})', { replace: { count: motions?.length || 0 } })
+              text: t('Motions ({{count}})', { replace: { count: motions ? motions.length : 0 || 0 } })
             }
           ]}
         />
