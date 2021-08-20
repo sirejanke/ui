@@ -5,8 +5,7 @@
 import { SubmittableExtrinsicFunction } from '@polkadot/api/promise/types';
 
 import { ApiPromise } from '@polkadot/api';
-import { KeyringPair$Meta } from '@polkadot/keyring/types';
-import type { EncryptedJsonEncoding, EncryptedJsonVersion } from '@polkadot/util-crypto/json/types';
+import { KeyringPair$JsonEncodingTypes, KeyringPair$JsonVersion, KeyringPair$Meta } from '@polkadot/keyring/types';
 import { KeypairType } from '@polkadot/util-crypto/types';
 
 // helpers for HOC props
@@ -64,8 +63,8 @@ export type Formatter = (value?: any) => string;
 
 export interface KeyringPair$JsonEncoding2 {
   content: ['pkcs8', {'type': KeypairType} ];
-  type: EncryptedJsonEncoding | EncryptedJsonEncoding[];
-  version: EncryptedJsonVersion;
+  type: KeyringPair$JsonEncodingTypes | KeyringPair$JsonEncodingTypes[];
+  version: KeyringPair$JsonVersion;
 }
 export interface KeyringPair$Json2 {
   address: string;
