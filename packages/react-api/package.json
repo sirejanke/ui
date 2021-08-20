@@ -36,7 +36,6 @@
     "@polkadot/x-rxjs": "^5.9.2",
     "@polkadot/networks": "^3.6.1",
     "@polkadot/ui-keyring": "0.70.1",
-    "usb-detection": "^4.10.0",
     "rxjs-compat": "^6.5.3"
   }
 }
