@@ -24,6 +24,7 @@
     "babel-jest": "^26.6.3"
   },
   "scripts": {
+    "rebuild-deps": "electron-builder install-app-deps",
     "analyze": "yarn run build && cd packages/apps && yarn run source-map-explorer build/main.*.js",
     "build": "yarn run build:i18n && yarn run build:code",
     "build:code": "NODE_ENV=production node_modules/@polkadot/dev/scripts/polkadot-dev-build-ts.js",
@@ -71,6 +72,9 @@
     "@types/styled-components": "^4.4.2",
     "@types/styled-theming": "^2.2.2",
     "@types/yargs": "^15.0.2",
+    "electron": "^12.0.12",
+    "electron-builder": "22.11.7",
+    "electron-builder-notarize": "^1.2.0",
     "empty": "^0.10.1",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
