@@ -8,7 +8,7 @@ import { KeyringPair$Json } from '@polkadot/keyring/types';
 import { KeyringPair$Json2, KeyringPair$JsonEncoding2 } from "@polkadot/react-api/types";
 import { updateToV3KeyringFormat } from "@polkadot/react-api/util/keyringFormat";
 
-describe('Test different keyring format with support to old key format', () => {
+describe.skip('Test different keyring format with support to old key format', () => {
     let api: ApiPromise;
     let store: BrowserStore;
 
