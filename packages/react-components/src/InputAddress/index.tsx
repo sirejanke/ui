@@ -2,7 +2,7 @@
 // This software may be modified and distributed under the terms
 // of the Apache-2.0 license. See the LICENSE file for details.
 
-import { KeyringOptions, KeyringSectionOption, KeyringSectionOptions, KeyringOption$Type } from '@polkadot/ui-keyring/options/types';
+import type { KeyringOption$Type, KeyringOptions, KeyringSectionOption, KeyringSectionOptions } from '@polkadot/ui-keyring/options/types';
 import { BareProps } from '../types';
 import { Option } from './types';
 
@@ -10,9 +10,8 @@ import React from 'react';
 import store from 'store';
 import styled from 'styled-components';
 import { withMulti, withObservable } from '@polkadot/react-api/hoc';
-import keyring from '@polkadot/ui-keyring';
-import keyringOption from '@polkadot/ui-keyring/options';
-import createKeyringItem from '@polkadot/ui-keyring/options/item';
+import { keyring } from '@polkadot/ui-keyring';
+import { createOptionItem } from '@polkadot/ui-keyring/options/item';
 import { isUndefined } from '@polkadot/util';
 
 import { classes, getAddressName } from '../util';
@@ -96,7 +95,7 @@ function createOption (address: string): Option {
     }
   }
 
-  return createItem(createKeyringItem(address, name), !isRecent);
+  return createItem(createOptionItem(address, name), !isRecent);
 }
 
 function readOptions (): Record<string, any> {
@@ -312,7 +311,7 @@ const ExportedComponent = withMulti(
       max-width: 0;
     }
   `,
-  withObservable(keyringOption.optionsSubject, {
+  withObservable(keyring.keyringOption.optionsSubject, {
     propName: 'optionsAll',
     transform: (optionsAll: KeyringOptions): Record<string, Option[]> =>
       Object.entries(optionsAll).reduce((result: Record<string, Option[]>, [type, options]): Record<string, Option[]> => {

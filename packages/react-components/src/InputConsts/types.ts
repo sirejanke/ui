@@ -4,9 +4,9 @@
 
 import { StorageEntryBase } from '@polkadot/api/types';
 import { ModuleConstantMetadataV12 } from '@polkadot/types/interfaces';
+import type { AnyTuple } from '@polkadot/types/types';
 
-export type StorageEntryPromise = StorageEntryBase<'promise', any>;
-
+export type StorageEntryPromise = StorageEntryBase<'promise', any, AnyTuple>;
 export interface ConstValueBase {
   method: string;
   section: string;
