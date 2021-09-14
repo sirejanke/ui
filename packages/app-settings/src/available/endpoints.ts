@@ -6,14 +6,20 @@ import { Option } from '../types';
 
 const cennznet = {
   info: 'cennznet',
-  text: 'CENNZnet MainNet (UNfrastructure)',
+  text: 'CENNZnet (MainNet)',
   value: 'wss://cennznet.unfrastructure.io/public/ws'
 };
 
 const nikau = {
   info: 'nikau testnet',
-  text: 'CENNZnet Nikau TestNet (UNfrastructure)',
+  text: 'Nikau (TestNet)',
   value: 'wss://nikau.centrality.me/public/ws'
+}
+
+const rata = {
+  info: 'rata testnet',
+  text: 'Rata (TestNet)',
+  value: 'wss://kong2.centrality.me/public/rata/ws'
 }
 
 const local = {
@@ -25,5 +31,6 @@ const local = {
 export default [
   cennznet, // default
   nikau,
+  rata,
   local
 ].map((option): Option => ({ ...option, withI18n: true }));

@@ -11,7 +11,7 @@ import { useApi } from '@polkadot/react-hooks';
 
 // last-resort fallback, just something empty
 import EMPTY from '@polkadot/ui-assets/empty.svg';
-import cennznetLogo from '../../apps/assets/cennznet-logo-light.svg';
+import cennznetLogo from '../../apps/assets/cennznet-logo-dark.svg';
 import hamburgerMenu from '../../apps/assets/hamburger_menu.svg';
 
 // anything fopr a specific chain, most items will probably go in here
@@ -83,6 +83,7 @@ function ChainImg ({ className, logo, onClick }: Props): React.ReactElement<Prop
 }
 
 export default styled(ChainImg)`
- // border-radius: 50%;
- // box-sizing: border-box;
+  background: 'black';
+  border-radius: 50%;
+  box-sizing: border-box;
 `;
