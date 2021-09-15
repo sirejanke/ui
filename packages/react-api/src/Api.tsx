@@ -82,7 +82,7 @@ async function loadOnReady (api: ApiPromise): Promise<State> {
         address,
         meta: {
           ...meta,
-          name: `${meta.name} (${meta.source === 'polkadot-js' ? 'extension' : meta.source})`
+          name: `${meta.name} (${meta.source === 'cennznet-extension' ? 'extension' : meta.source})`
         }
       }))
     )

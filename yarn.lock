@@ -1401,12 +1401,12 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cennznet/api@1.5.0-alpha.1":
-  version "1.5.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/@cennznet/api/-/api-1.5.0-alpha.1.tgz#8833b7d99ada69b21c8023f5be9d290dc6b1c06a"
-  integrity sha512-wLgHj8Ijuk/L5ATnZ+fs0+oHRHFmZNdFClO3BK5D87AeUhd6h6Pz2iK8+yJ1Ydb1YPIqEComIa1JuFKCwTg+ng==
+"@cennznet/api@1.5.0-alpha.2":
+  version "1.5.0-alpha.2"
+  resolved "https://registry.yarnpkg.com/@cennznet/api/-/api-1.5.0-alpha.2.tgz#23a4636f3d39302b045ca2a2a606c8e83d2fec9a"
+  integrity sha512-G6tfvEanI1xYePfKADsxkWf25aFCELBstLMTUxpPsmM37oSGMQNRjjmLbFXRn8lj5fqqGmChTSUnytZuRCI4YQ==
   dependencies:
-    "@cennznet/types" "^1.5.0-alpha.1"
+    "@cennznet/types" "^1.5.0-alpha.2"
     "@polkadot/api" "3.7.1"
     "@polkadot/extension-dapp" "^0.36.1"
     "@polkadot/metadata" "3.7.1"
@@ -1415,10 +1415,10 @@
     "@polkadot/types" "3.7.1"
     eventemitter3 "^4.0.0"
 
-"@cennznet/types@1.5.0-alpha.1", "@cennznet/types@^1.5.0-alpha.1":
-  version "1.5.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/@cennznet/types/-/types-1.5.0-alpha.1.tgz#95e3fa49cd985fed456904f4a36ad732d6de1669"
-  integrity sha512-2vRMM/woAKvtgaDDmE340Cq8R2vJ6r267XpzJMREKR5Vz7dNpSApO//kMhgTglidcGEwCjxBMyRFJCRLhtEW+g==
+"@cennznet/types@1.5.0-alpha.2", "@cennznet/types@^1.5.0-alpha.2":
+  version "1.5.0-alpha.2"
+  resolved "https://registry.yarnpkg.com/@cennznet/types/-/types-1.5.0-alpha.2.tgz#7a4bc1afb4e91c49d3dc7eb226e6ae8a4b96971c"
+  integrity sha512-VmIXma8KtaOk+uZlXh1+DyI4S+ys1deA+GtLnrKKSE+xkKJdzFE3ElKoeJPGoaKdCdADAiJgCd95MAlw7xNDWw==
   dependencies:
     "@polkadot/keyring" "5.9.2"
     "@polkadot/types" "3.7.1"
