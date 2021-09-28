@@ -67,6 +67,14 @@ export const poolRegistry: Record<string, any> = {
     "5GEtjpujbteyQN7bcgSu4hc2A4jD9HrpZ9kvutXfMwy3RNNv": "MoyoriNet",
     "5CypTaFf6qsQESJKNQkUA6cs6TRdNfs1FTTApMtoisrPRGot": "MoyoriNet",
     "5HNFjjmuAiajFTHxbmfAjk1uBAK49qKGejuBJ9coZ8DQGdhs": "MoyoriNet",
-    "5DRW9CexN74DbFCm4vch9nzjSk48iNGWnLzUHzxgXCKsPVTp": "Akina"   
+    "5DRW9CexN74DbFCm4vch9nzjSk48iNGWnLzUHzxgXCKsPVTp": "Akina",
+    "5F1y88GBYbVE6mn1XMC6RLBY6JfJhbS1GddQjquN3GCWv37M": "Nimbus",
+    "5H6gvazhbaDuzHPWsnmXRy58rafY4dGJFCvNbnx3fTbV49z4": "Nimbus",
+    "5FsfUWKCca3FYTgqdCCKfDzkKGnw1n21wTbG55JgjUfsQQgM": "Nimbus",
+    "5DRq9YF1izK4a64yYSJocNCWrBPP1TCkRrmdY1beCkrRyKUL": "Dende",
+    "5CyUfaenpNHxFdVEjR9FRQFQjvLjH49F29E95har8Ptatvts": "Dende",
+    "5EAUdirtPpmzy1eopgQBTtcP5QstmcuVcQUzHKoTDBhRRp7Z": "Iyo",
+    "5FA7jmMVg8Rs6BUv56rYKXRXLm98jE2k618FHPpQ9PvhQMHo": "Miyuki",
+    "5CJ9fQnWGb5KZEjuPxhDDEutzDsFQHWMTo4AxK3Bgnre58Fj": "Noriko"
   }
 };
