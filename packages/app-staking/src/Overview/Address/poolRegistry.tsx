@@ -75,6 +75,9 @@ export const poolRegistry: Record<string, any> = {
     "5CyUfaenpNHxFdVEjR9FRQFQjvLjH49F29E95har8Ptatvts": "Dende",
     "5EAUdirtPpmzy1eopgQBTtcP5QstmcuVcQUzHKoTDBhRRp7Z": "Iyo",
     "5FA7jmMVg8Rs6BUv56rYKXRXLm98jE2k618FHPpQ9PvhQMHo": "Miyuki",
-    "5CJ9fQnWGb5KZEjuPxhDDEutzDsFQHWMTo4AxK3Bgnre58Fj": "Noriko"
+    "5CJ9fQnWGb5KZEjuPxhDDEutzDsFQHWMTo4AxK3Bgnre58Fj": "Noriko",
+    "5Haj7HQQJUZCJZZiVxMoTMizasH2VUtVCqNgsRK32W1vZqRW": "Kaleidstake",
+    "5E4zsak5zZBbUZryBmYvF9n5GRma8Lob8M9q6oY7BoArnfqG": "Kaleidstake",
+    "5EKxuQcKXfw3pkSRCYMjcTCh6HdRsCU5LoxiN1FZ7qFCkSrH": "Kaleidstake"
   }
 };
