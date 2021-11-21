@@ -35,8 +35,8 @@ interface Props {
 
 function SideBarContainer ({ className, collapse, handleResize, isCollapsed, isMenuOpen, toggleMenu, isAdvanceOpen }: Props): React.ReactElement<Props> {
   const { t } = useTranslation();
-  const { api } = useApi();
-  const runtimeVersion = useCall<RuntimeVersion | undefined>(api.rpc.state.subscribeRuntimeVersion, []);
+  const { api, isApiReady } = useApi();
+  const runtimeVersion = useCall<RuntimeVersion | undefined>(isApiReady && api.rpc.state.subscribeRuntimeVersion, []);
   const [modals, setModals] = useState<Record<string, boolean>>(
     routing.routes.reduce((result: Record<string, boolean>, route): Record<string, boolean> => {
       if (route && route.Modal) {
