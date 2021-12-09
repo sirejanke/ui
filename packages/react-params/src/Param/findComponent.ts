@@ -7,7 +7,7 @@ import { Props, ComponentMap } from '../types';
 
 import BN from 'bn.js';
 import { registry } from '@polkadot/react-api';
-import { createType, getTypeDef } from '@polkadot/types';
+import { getTypeDef } from '@polkadot/types';
 
 import Account from './Account';
 import Amount from './Amount';
@@ -125,7 +125,7 @@ export default function findComponent (def: TypeDef, overrides: ComponentMap = {
 
   if (!Component) {
     try {
-      const instance = createType(registry, type as any);
+      const instance = registry.createType(type as any);
       const raw = getTypeDef(instance.toRawType());
 
       Component = findOne(raw.type);
@@ -134,7 +134,9 @@ export default function findComponent (def: TypeDef, overrides: ComponentMap = {
         return Component;
       } else if (instance instanceof BN) {
         return Amount;
-      } else if ([TypeDefInfo.Enum, TypeDefInfo.Struct].includes(raw.info)) {
+      } else if ([TypeDefInfo.Enum, TypeDefInfo.Struct, TypeDefInfo.Tuple, TypeDefInfo.Vec].includes(raw.info)) {
+        return findComponent(raw, overrides);
+      } else if (raw.info === TypeDefInfo.VecFixed && (raw.sub as TypeDef).type !== 'u8') {
         return findComponent(raw, overrides);
       }
     } catch (error) {

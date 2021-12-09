@@ -3,7 +3,9 @@
 // of the Apache-2.0 license. See the LICENSE file for details.
 
 import { TypeRegistry } from '@polkadot/types';
+import types from '@cennznet/types/interfaces/injects';
 
 const registry = new TypeRegistry();
+registry.register(types);
 
 export default registry;
