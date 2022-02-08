@@ -21,8 +21,7 @@ import SideBarHeader from './SideBarHeader';
 import SideBarScroll from './SideBarScroll';
 import SideBarToggle from './SideBarToggle';
 import SideBarWrapper from './SideBarWrapper';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
+
 interface Props {
   className?: string;
   collapse: () => void;
@@ -139,6 +138,16 @@ function SideBarContainer ({ className, collapse, handleResize, isCollapsed, isM
                   <span className='text'>{t('Wiki')}</span>
                 </SideBarItemLink>
               </SideBarItem>
+              <SideBarItem>
+              <SideBarItemLink
+                href='https://bridge.cennz.net/'
+                rel='noopener noreferrer'
+                target='_blank'
+              >
+                <Icon name='exchange' />
+                <span className='text'>{t('Ethereum Bridge')}</span>
+              </SideBarItemLink>
+            </SideBarItem>
             </SideBarAdvancedContainer>
             <SideBarItem>
               <SideBarItemLink
@@ -146,7 +155,7 @@ function SideBarContainer ({ className, collapse, handleResize, isCollapsed, isM
                   rel='noopener noreferrer'
                   target='_blank'
               >
-                <FontAwesomeIcon icon={faQuestionCircle}/>
+                <Icon name="question circle outline"/>
                 <span className='text'>{t('Support')}</span>
               </SideBarItemLink>
             </SideBarItem>
